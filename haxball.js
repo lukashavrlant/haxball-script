@@ -469,7 +469,7 @@ room.onTeamVictory = function (scores) { // Sum up all scorers since the beginni
     rankFun();
 
     if (Math.random() < 0.05) {
-		room.sendChat("No, Vlaďka by to chytla...");
+		room.sendChat("Už toho nechte a běžte radši pracovat...");
     }
 };
 room.onGameStop = function () {
