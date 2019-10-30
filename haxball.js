@@ -7,6 +7,16 @@ Steps:
     4) Enter
     5) IF THIS TAB IS CLOSED THE ROOM WILL BE CLOSED TOO
 */
+
+const points = {
+    goal: 5,
+    assist: 3,
+    win: 3,
+    cleanSheet: 6,
+    loss: -7,
+    ownGoal: -3,
+};
+
 const geoLocation = {"code": "cz", "lat": 49.94700, "lon": 17.90020};
 const roomConfig = {
     roomName: "Ströer Labs - Haxball Room",
@@ -99,7 +109,7 @@ function gkHelpFun() { // !gkhelp
     room.sendChat('The most backward player at the kick off will be set as gk. (write "!gk" if you want to be goal keeper).')
 }
 function rankHelpFun() { // !gkhelp
-    room.sendChat("Get points by doing good things in this room ! Goal: 5 pts, assist: 3 pts, win: 3 pts, cs: 6 pts, lose: -7 pts, og: -2 pts.")
+    room.sendChat(`Scores for ranking: ${JSON.stringify(points)}`);
 }
 function statsFun(player, message) { // !stats Anddy
     const playerName = message.substr(7) || player.name;
@@ -163,16 +173,18 @@ function rankingCalc(player) {
         console.error(`unable to get stats for player ${player}`);
     }
 
-    return playerStats[0] * 5 + playerStats[1] * 3 +
-        playerStats[2] * 3 + playerStats[5] * 6 -
-        playerStats[3] * 7 - playerStats[4] * 2;
+    return playerStats[0] * points.goal + 
+        playerStats[1] * points.assist +
+        playerStats[2] * points.win + 
+        playerStats[3] * points.cleanSheet +
+        playerStats[4] * points.loss + 
+        playerStats[5] * points.ownGoal;
 }
 function getRanking() {
     let overall = [];
     players = Array.from(stats.keys());
     for (var i = 2; i < players.length; i++) {
         score = rankingCalc(players[i]);
-        // Goal: 5 pts, assist: 3 pts, win: 3 pts, clean sheet: 6 pts, lose: -7 pts, own goal: -2 pts
         overall.push({name: players[i], value: score});
     }
     overall.sort(function (a, b) {
