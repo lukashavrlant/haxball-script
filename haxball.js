@@ -175,10 +175,10 @@ function rankingCalc(player) {
 
     return playerStats[0] * points.goal + 
         playerStats[1] * points.assist +
-        playerStats[2] * points.win + 
+        playerStats[2] * points.ownGoal + 
         playerStats[3] * points.cleanSheet +
-        playerStats[4] * points.loss + 
-        playerStats[5] * points.ownGoal;
+        playerStats[4] * points.win + 
+        playerStats[5] * points.loss;
 }
 function getRanking() {
     let overall = [];
