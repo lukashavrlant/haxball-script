@@ -174,13 +174,14 @@ function rankingCalc(player) {
     }
 	
     console.log(`ranking player ${player.name}`, playerStats, points);
-
+    
+    // goals, assists, wins, loses, og, cs
     return playerStats[0] * points.goal + 
         playerStats[1] * points.assist +
-        playerStats[2] * points.ownGoal + 
-        playerStats[3] * points.cleanSheet +
-        playerStats[4] * points.win + 
-        playerStats[5] * points.loss;
+        playerStats[2] * points.win + 
+        playerStats[3] * points.loss +
+        playerStats[4] * points.ownGoal + 
+        playerStats[5] * points.cleanSheet;
 }
 function getRanking() {
     let overall = [];
