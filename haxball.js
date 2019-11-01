@@ -222,7 +222,6 @@ function whichTeam() { // gives the players in the red or blue team
 function isGk() { // gives the mosts backward players before the first kickOff
     var players = room.getPlayerList();
     var min = players[0];
-    min.position = {x: room.getBallPosition().x + 60};
     var max = min;
     console.log(`automatically assigning goal keepers`, players);
     for (var i = 0; i < players.length; i++) {
