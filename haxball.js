@@ -297,6 +297,7 @@ function isOvertime() {
         if (scores.timeLimit != 0) {
             if (scores.time > scores.timeLimit) {
                 if (scores.red == 0 && hasFinished == false) {
+		    console.log(`increasing cs for ${gk[0].name} and ${gk[1].name} in overtime`);
                     stats.get(gk[0].name)[5] += 1;
                     stats.get(gk[1].name)[5] += 1;
                     hasFinished = true;
@@ -470,8 +471,14 @@ room.onPositionsReset = function () {
     goalScored = false;
 };
 room.onTeamVictory = function (scores) { // Sum up all scorers since the beginning of the match.
-    if (scores.blue == 0 && gk[0].position != null && hasFinished == false) stats.get(gk[0].name)[5] += 1;
-    if (scores.red == 0 && gk[1].position != null && hasFinished == false) stats.get(gk[1].name)[5] += 1;
+    if (scores.blue == 0 && gk[0].position != null && hasFinished == false) {
+	console.log(`increasing cs for ${gk[0].name} on team victory`);
+	stats.get(gk[0].name)[5] += 1;
+    }
+    if (scores.red == 0 && gk[1].position != null && hasFinished == false) {
+	console.log(`increasing cs for ${gk[1].name} on team victory`);
+	stats.get(gk[1].name)[5] += 1;
+    }
     if (scores.red > scores.blue) {
         updateWinLoseStats(redTeam, blueTeam);
     } else {
@@ -497,4 +504,3 @@ room.onGameStop = function () {
     hasFinished = false;
     lastPlayerThatKickedTheBall = undefined;
 };
-// Made by ToČe
