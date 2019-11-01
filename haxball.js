@@ -224,6 +224,7 @@ function isGk() { // gives the mosts backward players before the first kickOff
     var min = players[0];
     min.position = {x: room.getBallPosition().x + 60};
     var max = min;
+    console.log(`automatically assigning goal keepers`, players);
     for (var i = 0; i < players.length; i++) {
         if (players[i].position != null) {
             if (min.position.x > players[i].position.x) min = players[i];
