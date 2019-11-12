@@ -196,9 +196,7 @@ function getRanking() {
 
     string = "";
     for (var i = 0; i < overall.length; i++) {
-        if (overall[i].value != 0) {
-            string += i + 1 + ") " + overall[i].name + ": " + overall[i].value + ", ";
-        }
+        string += i + 1 + ") " + overall[i].name + ": " + overall[i].value + ", ";
     }
     return string;
 }
