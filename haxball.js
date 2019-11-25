@@ -219,14 +219,13 @@ function whichTeam() { // gives the players in the red or blue team
 }
 function isGk() { // gives the mosts backward players before the first kickOff
     var players = room.getPlayerList();
-    var min = players[0];
+    var inGamePlayers = players.filter(x => x.position);
+    var min = inGamePlayers[0];
     var max = min;
     console.log(`automatically assigning goal keepers`, players);
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].position != null) {
-            if (min.position.x > players[i].position.x) min = players[i];
-            if (max.position.x < players[i].position.x) max = players[i];
-        }
+    for (var i = 0; i < inGamePlayers.length; i++) {
+          if (min.position.x > inGamePlayers[i].position.x) min = inGamePlayers[i];
+          if (max.position.x < inGamePlayers[i].position.x) max = inGamePlayers[i];
     }
     return [min, max]
 }
@@ -489,7 +488,7 @@ room.onTeamVictory = function (scores) { // Sum up all scorers since the beginni
     rankFun();
 
     if (Math.random() < 0.05) {
-		room.sendChat("Už toho nechte a běžte radši pracovat...");
+		    room.sendChat("Už toho nechte a běžte radši pracovat...");
     }
 };
 room.onGameStop = function () {
