@@ -172,8 +172,6 @@ function rankingCalc(player) {
     if (!playerStats) {
         console.error(`unable to get stats for player ${player}`);
     }
-	
-    console.log(`ranking player ${player}`, playerStats, points);
     
     // goals, assists, wins, loses, og, cs
     return playerStats[0] * points.goal + 
