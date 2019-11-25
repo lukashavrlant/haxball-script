@@ -474,8 +474,10 @@ room.onTeamVictory = function (scores) { // Sum up all scorers since the beginni
 	stats.get(gk[1].name)[5] += 1;
     }
     if (scores.red > scores.blue) {
+	console.log(`Red team won ${scores.red}:${scores.blue}`);
         updateWinLoseStats(redTeam, blueTeam);
     } else {
+	console.log(`Blue team won ${scores.blue}:${scores.red}`);
         updateWinLoseStats(blueTeam, redTeam);
     }
     room.sendChat("Scored goals:");
