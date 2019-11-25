@@ -9,12 +9,12 @@ Steps:
 */
 
 const points = {
-    goal: 5,
-    assist: 3,
+    goal: 3,
+    assist: 2,
     win: 4,
     cleanSheet: 7,
     loss: -5,
-    ownGoal: -3,
+    ownGoal: -2,
 };
 
 const geoLocation = {"code": "cz", "lat": 49.94700, "lon": 17.90020};
