@@ -11,9 +11,9 @@ Steps:
 const points = {
     goal: 5,
     assist: 3,
-    win: 3,
-    cleanSheet: 6,
-    loss: -7,
+    win: 4,
+    cleanSheet: 7,
+    loss: -5,
     ownGoal: -3,
 };
 
