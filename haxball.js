@@ -486,9 +486,13 @@ room.onTeamVictory = function (scores) { // Sum up all scorers since the beginni
     }
     teamPossFun();
     rankFun();
+	
+    const rNumber = Math.random();
 
-    if (Math.random() < 0.05) {
-		    room.sendChat("Už toho nechte a běžte radši pracovat...");
+    if (rNumber < 0.02) {
+	    room.sendChat("Ale jako ten poslední gól se dál chytnout...");
+    } else if (rNumber < 0.04) {
+	    room.sendChat("Snad jste lepší programátoři než hráči haxballu...");
     }
 };
 room.onGameStop = function () {
