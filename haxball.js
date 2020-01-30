@@ -489,10 +489,12 @@ room.onTeamVictory = function (scores) { // Sum up all scorers since the beginni
 	
     const rNumber = Math.random();
 
-    if (rNumber < 0.02) {
-	    room.sendChat("Ale jako ten poslední gól se dál chytnout...");
-    } else if (rNumber < 0.04) {
+    if (rNumber < 0.01) {
+	    room.sendChat("Ale jako ten poslední gól se dal chytnout...");
+    } else if (rNumber < 0.02) {
 	    room.sendChat("Snad jste lepší programátoři než hráči haxballu...");
+    } else if (rNumber < 0.03) {
+	    room.sendChat("Ty vole, hrajete jako Lokvenc...");
     }
 };
 room.onGameStop = function () {
